@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="user" type="com.sys1yagi.databindingsample.models.User"/>
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+        <TextView
+                android:text="@{user.name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <blink
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+            <TextView
+                    android:text="Edit name here!"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ff0000"/>
+        </blink>
+        <EditText
+                android:id="@+id/text_input"
+                android:text="edit here!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <requestFocus/>
+        </EditText>
+    </LinearLayout>
+</layout>
