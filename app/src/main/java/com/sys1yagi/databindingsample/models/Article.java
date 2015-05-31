@@ -1,17 +1,14 @@
 package com.sys1yagi.databindingsample.models;
 
-import com.sys1yagi.databindingsample.BR;
-
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-
-public class User extends BaseObservable {
+public class Article {
 
     private long id;
 
-    private String name;
+    private String title;
 
     private String description;
+
+    private String url;
 
     public long getId() {
         return id;
@@ -21,14 +18,12 @@ public class User extends BaseObservable {
         this.id = id;
     }
 
-    @Bindable
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
-        notifyPropertyChanged(BR.name);
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -37,5 +32,13 @@ public class User extends BaseObservable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

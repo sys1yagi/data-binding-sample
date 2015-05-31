@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".ArticleBinding">
+        <variable name="article" type="com.sys1yagi.databindingsample.models.Article"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+        <TextView
+                android:text="@{article.title}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                tools:text="article title"/>
+        <TextView
+                android:text="@{article.description}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                tools:text="article description"/>
+        <TextView
+                android:text="@{article.url}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_gravity="right"
+                tools:text="article url"/>
+    </LinearLayout>
+</layout>

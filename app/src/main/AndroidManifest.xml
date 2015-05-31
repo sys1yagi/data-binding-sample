@@ -19,6 +19,7 @@
         <activity android:name=".activities.SimpleBindingActivity"/>
         <activity android:name=".activities.ViewsWithIDsActivity"/>
         <activity android:name=".activities.AutoUpdateBindingActivity"/>
+        <activity android:name=".activities.MVVMActivity"/>
     </application>
 
 </manifest>
