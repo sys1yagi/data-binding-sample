@@ -20,6 +20,7 @@
         <activity android:name=".activities.ViewsWithIDsActivity"/>
         <activity android:name=".activities.AutoUpdateBindingActivity"/>
         <activity android:name=".activities.MVVMActivity"/>
+        <activity android:name=".activities.AvoidingNullPointerExceptionActivity"/>
     </application>
 
 </manifest>

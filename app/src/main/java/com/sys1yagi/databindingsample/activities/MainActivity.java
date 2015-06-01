@@ -74,13 +74,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(MVVMActivity.createIntent(MainActivity.this));
             }
         }));
-        //TODO
-//        adapter.add(new Title("Auto avoiding NullPointerException", new Action0() {
-//            @Override
-//            public void call() {
-//
-//            }
-//        }));
+        adapter.add(new Title("Avoiding NullPointerException", new Action0() {
+            @Override
+            public void call() {
+                startActivity(AvoidingNullPointerExceptionActivity.createIntent(MainActivity.this));
+            }
+        }));
 
 //        adapter.add("Include Data Binding Layout");
 //        adapter.add("Expression Language");
