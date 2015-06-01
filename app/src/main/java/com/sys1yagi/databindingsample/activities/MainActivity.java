@@ -3,14 +3,45 @@ package com.sys1yagi.databindingsample.activities;
 import com.sys1yagi.databindingsample.R;
 import com.sys1yagi.databindingsample.databinding.ActivityMainBinding;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+import rx.functions.Action0;
+
+public class MainActivity extends AppCompatActivity {
+
+    class Title {
+
+        String title;
+
+        Action0 action;
+
+        public Title(String title, Action0 action) {
+            this.title = title;
+            this.action = action;
+        }
+    }
+
+    class TitleAdapter extends ArrayAdapter<Title> {
+
+        public TitleAdapter(Context context) {
+            super(context, android.R.layout.simple_list_item_1);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView textView = (TextView) super.getView(position, convertView, parent);
+            textView.setText(getItem(position).title);
+            return textView;
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -18,15 +49,39 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1);
-
-        adapter.add("Simple Binding");
-        adapter.add("Auto Update");
-        adapter.add("View With IDs");
-        adapter.add("MVVM Pattern");
-
+        final TitleAdapter adapter = new TitleAdapter(this);
+        adapter.add(new Title("Simple Binding", new Action0() {
+            @Override
+            public void call() {
+                startActivity(SimpleBindingActivity.createIntent(MainActivity.this));
+            }
+        }));
+        adapter.add(new Title("Auto Update", new Action0() {
+            @Override
+            public void call() {
+                startActivity(AutoUpdateBindingActivity.createIntent(MainActivity.this));
+            }
+        }));
+        adapter.add(new Title("View With IDs", new Action0() {
+            @Override
+            public void call() {
+                startActivity(ViewsWithIDsActivity.createIntent(MainActivity.this));
+            }
+        }));
+        adapter.add(new Title("MVVM Pattern", new Action0() {
+            @Override
+            public void call() {
+                startActivity(MVVMActivity.createIntent(MainActivity.this));
+            }
+        }));
         //TODO
+//        adapter.add(new Title("Auto avoiding NullPointerException", new Action0() {
+//            @Override
+//            public void call() {
+//
+//            }
+//        }));
+
 //        adapter.add("Include Data Binding Layout");
 //        adapter.add("Expression Language");
 //        adapter.add("ObservableFields");
@@ -35,32 +90,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        adapter.add("Generated Binding");
 //        adapter.add("Converters");
 
-        binding.setListener(this);
-        binding.setAdapter(adapter);
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (position) {
-            case 0:
-                //Simple Binding
-                startActivity(SimpleBindingActivity.createIntent(this));
-                return;
-            case 1:
-                //Auto Update
-                startActivity(AutoUpdateBindingActivity.createIntent(this));
-                return;
-            case 2:
-                //View With IDs
-                startActivity(ViewsWithIDsActivity.createIntent(this));
-                return;
-            case 3:
-                //MVVM Pattern
-                startActivity(MVVMActivity.createIntent(this));
-                return;
-            case 4:
-                //Include Data Binding Layout
-                return;
-        }
+        binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent,
+                    View view, int position, long id) {
+                adapter.getItem(position).action.call();
+            }
+        });
+        binding.listView.setAdapter(adapter);
     }
 }
