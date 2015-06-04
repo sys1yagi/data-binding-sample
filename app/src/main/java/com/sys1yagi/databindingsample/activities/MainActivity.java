@@ -81,7 +81,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
-//        adapter.add("Include Data Binding Layout");
+        adapter.add(new Title("Include Data Binding Layout", new Action0() {
+            @Override
+            public void call() {
+                startActivity(IncludeDataBindingLayoutActivity.createIntent(MainActivity.this));
+            }
+        }));
 //        adapter.add("Expression Language");
 //        adapter.add("ObservableFields");
 //        adapter.add("Observable Collections");
