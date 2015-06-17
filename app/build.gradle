@@ -11,6 +11,7 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -26,5 +27,5 @@ dependencies {
 
     //It does not necessary for the binding
     compile 'io.reactivex:rxandroid:0.24.0'
-
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
 }
