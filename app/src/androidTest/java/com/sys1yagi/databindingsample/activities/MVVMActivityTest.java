@@ -8,6 +8,9 @@ import org.junit.Test;
 import android.support.test.InstrumentationRegistry;
 import android.view.LayoutInflater;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
 public class MVVMActivityTest {
 
     @Test
@@ -20,8 +23,15 @@ public class MVVMActivityTest {
         //
         //Because the source code for data binding is also generated in the test side, maybe.
 
-        ActivityMvvmBinding binding = ActivityMvvmBinding.inflate(LayoutInflater.from(
-                InstrumentationRegistry.getContext()
-        ));
+        //SOLVE: You should run on Android 5.0 or upper and run on Ui thread.
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
+            @Override
+            public void run() {
+                ActivityMvvmBinding binding = ActivityMvvmBinding.inflate(LayoutInflater.from(
+                        InstrumentationRegistry.getTargetContext()
+                ));
+                assertThat(binding, is(notNullValue()));
+            }
+        });
     }
 }
