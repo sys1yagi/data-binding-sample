@@ -21,6 +21,8 @@ public class ViewsWithIDsActivity extends AppCompatActivity {
 
         ActivityViewsWithIdsBinding binding = DataBindingUtil
                 .setContentView(this, R.layout.activity_views_with_ids);
+
+        //Become a member of the binding object automatically.
         binding.name.setText("jiro");
         binding.description.setText("I'm the second son.");
         binding.okButton.setText("ok");

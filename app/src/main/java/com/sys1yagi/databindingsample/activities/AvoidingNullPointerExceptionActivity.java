@@ -21,6 +21,8 @@ public class AvoidingNullPointerExceptionActivity extends AppCompatActivity {
 
         ActivityAvoidingNpeBinding binding = DataBindingUtil
                 .setContentView(this, R.layout.activity_avoiding_npe);
+
+        //no crash!
         binding.setViewModel(null);
     }
 }
