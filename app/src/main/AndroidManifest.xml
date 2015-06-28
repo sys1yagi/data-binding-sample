@@ -22,6 +22,7 @@
         <activity android:name=".activities.MVVMActivity"/>
         <activity android:name=".activities.AvoidingNullPointerExceptionActivity"/>
         <activity android:name=".activities.IncludeDataBindingLayoutActivity"/>
+        <activity android:name=".activities.ExpressionLanguageActivity"/>
     </application>
 
 </manifest>

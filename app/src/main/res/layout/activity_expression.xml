@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.sys1yagi.databindingsample.tools.Calculator"/>
+        <import type="android.view.View"/>
+        <variable name="right" type="Integer"/>
+        <variable name="left" type="Integer"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+            <EditText
+                    android:id="@+id/left_hand_side"
+                    android:textSize="50sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:hint="5"
+                    />
+
+            <TextView
+                    android:textSize="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    />
+            <EditText
+                    android:id="@+id/right_hand_side"
+                    android:textSize="50sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:hint="5"/>
+            <TextView
+                    android:textSize="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="="
+                    />
+        </LinearLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:text="@{Calculator.plus(left, right).toString()}"
+                tools:text="10"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="Up to three digits."
+                android:visibility="@{(Calculator.digitsCount(left)>=3||Calculator.digitsCount(right)>=3) ? View.VISIBLE : View.GONE}"
+                />
+    </LinearLayout>
+</layout>

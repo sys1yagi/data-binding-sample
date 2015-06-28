@@ -87,7 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(IncludeDataBindingLayoutActivity.createIntent(MainActivity.this));
             }
         }));
-//        adapter.add("Expression Language");
+
+        adapter.add(new Title("Expression Language", new Action0() {
+            @Override
+            public void call() {
+                startActivity(ExpressionLanguageActivity.createIntent(MainActivity.this));
+            }
+        }));
 //        adapter.add("ObservableFields");
 //        adapter.add("Observable Collections");
 //        adapter.add("Automatic Setters");
