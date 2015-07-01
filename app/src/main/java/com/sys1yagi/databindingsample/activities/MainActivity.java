@@ -94,10 +94,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(ExpressionLanguageActivity.createIntent(MainActivity.this));
             }
         }));
+        adapter.add(new Title("Binding Adapter", new Action0() {
+            @Override
+            public void call() {
+                startActivity(BindingAdapterActivity.createIntent(MainActivity.this));
+            }
+        }));
+        // Background Thread
+
 //        adapter.add("ObservableFields");
 //        adapter.add("Observable Collections");
 //        adapter.add("Automatic Setters");
-//        adapter.add("Generated Binding");
 //        adapter.add("Converters");
 
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

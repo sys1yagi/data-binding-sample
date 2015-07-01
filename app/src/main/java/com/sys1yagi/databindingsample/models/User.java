@@ -13,6 +13,8 @@ public class User extends BaseObservable {
 
     private String description;
 
+    private String icon;
+
     public long getId() {
         return id;
     }
@@ -37,5 +39,13 @@ public class User extends BaseObservable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
