@@ -17,3 +17,5 @@ see more [Data Binding Guide](https://developer.android.com/tools/data-binding/g
 - [ExpressionLanguageActivity.java](https://github.com/sys1yagi/data-binding-sample/blob/master/app/src/main/java/com/sys1yagi/databindingsample/activities/ExpressionLanguageActivity.java)
 - [MVVMActivity.java](https://github.com/sys1yagi/data-binding-sample/blob/master/app/src/main/java/com/sys1yagi/databindingsample/activities/MVVMActivity.java)
   - Implementation of MVVM Pattern using Data Binding.
+- [BindingAdapterActivity.java](https://github.com/sys1yagi/data-binding-sample/blob/master/app/src/main/java/com/sys1yagi/databindingsample/activities/BindingAdapterActivity.java)
+  - @BindingAdapter sample.
