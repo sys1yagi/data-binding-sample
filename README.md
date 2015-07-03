@@ -19,3 +19,29 @@ see more [Data Binding Guide](https://developer.android.com/tools/data-binding/g
   - Implementation of MVVM Pattern using Data Binding.
 - [BindingAdapterActivity.java](https://github.com/sys1yagi/data-binding-sample/blob/master/app/src/main/java/com/sys1yagi/databindingsample/activities/BindingAdapterActivity.java)
   - @BindingAdapter sample.
+
+## multi dex
+
+__multi-dex-keep.txt__
+
+```
+-keep public class * extends android.databinding.ViewDataBinding {
+ *;
+}
+```
+
+__build.gradle__
+
+```
+android {
+  defaultConfig {
+    multiDexEnabled = true
+    multiDexKeepProguard file('multi-dex-keep.txt')
+  }
+```
+
+## Proguard
+
+```
+-dontwarn android.databinding.**
+```

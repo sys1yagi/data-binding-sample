@@ -15,4 +15,4 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-#-dontwarn android.databinding.**
+-dontwarn android.databinding.**

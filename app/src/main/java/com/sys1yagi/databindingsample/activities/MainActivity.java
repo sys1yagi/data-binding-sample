@@ -100,12 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(BindingAdapterActivity.createIntent(MainActivity.this));
             }
         }));
-        // Background Thread
 
-//        adapter.add("ObservableFields");
-//        adapter.add("Observable Collections");
-//        adapter.add("Automatic Setters");
-//        adapter.add("Converters");
+        //ListView landscape portrait
 
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
