@@ -9,12 +9,12 @@ import android.widget.ImageView;
 
 public class ImageLoadAdapter {
 
-    @BindingAdapter({"bind:imageUrl"})
+    @BindingAdapter({"imageUrl"})
     public static void bindImage(ImageView view, String url) {
         Picasso.with(view.getContext()).load(url).into(view);
     }
 
-    @BindingAdapter({"bind:imageUrl", "bind:corner"})
+    @BindingAdapter({"imageUrl", "corner"})
     public static void bindImage(ImageView view, String url, int corner) {
         Context context = view.getContext();
         Picasso.with(context).load(url)
