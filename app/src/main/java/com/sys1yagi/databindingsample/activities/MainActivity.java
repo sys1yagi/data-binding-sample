@@ -87,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(IncludeDataBindingLayoutActivity.createIntent(MainActivity.this));
             }
         }));
+        adapter.add(new Title("Include Data Binding Layout (fix bug on rc1)", new Action0() {
+            @Override
+            public void call() {
+                startActivity(IncludeLayoutActivity.createIntent(MainActivity.this));
+            }
+        }));
 
         adapter.add(new Title("Expression Language", new Action0() {
             @Override

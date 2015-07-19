@@ -23,6 +23,7 @@
         <activity android:name=".activities.MVVMActivity"/>
         <activity android:name=".activities.AvoidingNullPointerExceptionActivity"/>
         <activity android:name=".activities.IncludeDataBindingLayoutActivity"/>
+        <activity android:name=".activities.IncludeLayoutActivity"/>
         <activity android:name=".activities.ExpressionLanguageActivity"/>
         <activity android:name=".activities.BindingAdapterActivity"/>
     </application>
