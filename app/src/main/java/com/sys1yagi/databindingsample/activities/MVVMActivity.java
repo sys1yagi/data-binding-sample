@@ -1,5 +1,6 @@
 package com.sys1yagi.databindingsample.activities;
 
+import com.cookpad.android.rxt4a.schedulers.AndroidSchedulers;
 import com.sys1yagi.databindingsample.R;
 import com.sys1yagi.databindingsample.api.ArticleApiClient;
 import com.sys1yagi.databindingsample.databinding.ActivityMvvmBinding;
@@ -15,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.List;
 
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.Subscriptions;
